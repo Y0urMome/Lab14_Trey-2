@@ -27,7 +27,6 @@ class AlienInvasion:
         self.laser_sound = pygame.mixer.Sound(self.settings.laser_sound)
         self.laser_sound.set_volume(0.7)
 
-
         self.ship = Ship(self, Arsenal(self))
     
     def run_game(self):
@@ -67,6 +66,7 @@ class AlienInvasion:
             self.running = False
             pygame.quit()
             sys.exit()
+
     def _check_keyup_events(self, event):
         if event.key == pygame.K_RIGHT:
             self.ship.moving_right = False
