@@ -11,7 +11,7 @@ class Bullet(Sprite):
         self.screen = game.screen
         self.settings = game.settings
 
-        self.image = pygame.image.load(self.settings.bullet_file)
+        self.image = pygame.image.load(str(self.settings.bullet_file))
         self.image = pygame.transform.scale(self.image,
                 (self.settings.bullet_w, self.settings.bullet_h)
                 )
@@ -24,4 +24,5 @@ class Bullet(Sprite):
         self.rect.y = self.y
 
     def draw_bullet(self):
+        print("Drawing bullet at", self.rect)
         self.screen.blit(self.image, self.rect)

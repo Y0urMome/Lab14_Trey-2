@@ -12,7 +12,11 @@ class Ship:
         self.screen = game.screen
         self.boundaries = self.screen.get_rect()
 
-        self.image = pygame.image.load(self.settings.ship_file)
+        try:
+            self.image = pygame.image.load(str(self.settings.ship_file))
+        except pygame.error as e:
+            print("Failed to load ship image:", e)
+
         self.image = pygame.transform.scale(self.image,
                 (self.settings.ship_w, self.settings.ship_h)
                 )
@@ -34,13 +38,14 @@ class Ship:
         if self.moving_right and self.rect.right < self.boundaries.right:
             self.x += temp_speed
         if self.moving_left and self.rect.left > self.boundaries.left:
-            self.x -+ temp_speed
+            self.x -= temp_speed
 
         self.rect.x = self.x
 
     def draw(self):
+        print("Drawing ship at", self.rect)
         self.arsenal.draw()
         self.screen.blit(self.image, self.rect)
 
     def fire(self):
-        return self.arsenal.fire_bullet
+        return self.arsenal.fire_bullet()
