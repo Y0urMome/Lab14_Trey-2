@@ -24,5 +24,4 @@ class Bullet(Sprite):
         self.rect.y = self.y
 
     def draw_bullet(self):
-        print("Drawing bullet at", self.rect)
         self.screen.blit(self.image, self.rect)
