@@ -41,7 +41,7 @@ class HUD:
         self.score_rect.top = self.max_score_rect.bottom + self.padding
 
     def _update_max_score(self):
-        max_score_str = f'Max Score: {self.game_stats.max_score: ,.0f}'
+        max_score_str = f'MAX SCORE: {self.game_stats.max_score: ,.0f}'
         self.max_score_image = self.font.render(max_score_str, True,
             self.settings.text_color, None)
         self.max_score_rect = self.max_score_image.get_rect()
@@ -49,14 +49,14 @@ class HUD:
         self.max_score_rect.top = self.padding
 
     def _update_hi_score(self):
-        hi_score_str = f'Hi-Score: {self.game_stats.hi_score: ,.0f}'
+        hi_score_str = f'HI-SCORE: {self.game_stats.hi_score: ,.0f}'
         self.hi_score_image = self.font.render(hi_score_str, True,
             self.settings.text_color, None)
         self.hi_score_rect = self.hi_score_image.get_rect()
         self.hi_score_rect.midtop = (self.boundaires.centerx,self.padding)
 
     def update_level(self):
-        level_str = f'Level: {self.game_stats.level: ,.0f}'
+        level_str = f'LEVEL: {self.game_stats.level: ,.0f}'
         self.level_image = self.font.render(level_str, True,
             self.settings.text_color, None)
         self.level_rect = self.level_image.get_rect()
